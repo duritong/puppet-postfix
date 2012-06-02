@@ -3,7 +3,7 @@
 #
 # Manages Postfix header_checks by merging snippets shipped:
 # - in the module's files/header_checks.d/ or puppet:///files/etc/postfix/header_checks.d
-#   (the latter takes precedence if present); site-postfix module is supported
+#   (the latter takes precedence if present); site_postfix module is supported
 #   as well, see the source argument of file {"$postfix_header_checks_snippets_dir"
 #   bellow for details.
 # - via postfix::header_checks_snippet defines
@@ -30,8 +30,8 @@ class postfix::header_checks {
     group   => '0',
     mode    => '700',
     source  => [
-                "puppet:///modules/site-postfix/${fqdn}/header_checks.d",
-                "puppet:///modules/site-postfix/header_checks.d",
+                "puppet:///modules/site_postfix/${fqdn}/header_checks.d",
+                "puppet:///modules/site_postfix/header_checks.d",
                 "puppet:///files/etc/postfix/header_checks.d",
                 "puppet:///modules/postfix/header_checks.d",
                ],

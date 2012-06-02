@@ -3,7 +3,7 @@
 #
 # Manages Postfix TLS policy by merging policy snippets shipped:
 # - in the module's files/tls_policy.d/ or puppet:///files/etc/postfix/tls_policy.d
-#   (the latter takes precedence if present); site-postfix module is supported
+#   (the latter takes precedence if present); site_postfix module is supported
 #   as well, see the source argument of file {"$postfix_tlspolicy_snippets_dir"
 #   bellow for details.
 # - via postfix::tlspolicy_snippet defines
@@ -38,8 +38,8 @@ class postfix::tlspolicy {
     group   => '0',
     mode    => '700',
     source  => [
-                "puppet:///modules/site-postfix/${fqdn}/tls_policy.d",
-                "puppet:///modules/site-postfix/tls_policy.d",
+                "puppet:///modules/site_postfix/${::fqdn}/tls_policy.d",
+                "puppet:///modules/site_postfix/tls_policy.d",
                 "puppet:///modules/postfix/tls_policy.d",
                ],
     recurse => true,
