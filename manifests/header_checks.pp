@@ -44,9 +44,10 @@ class postfix::header_checks {
     require => File["$postfix_header_checks_snippets_dir"],
   }
   
-  config_file { '/etc/postfix/header_checks':
+  file { '/etc/postfix/header_checks':
     source    => "$postfix_merged_header_checks",
     subscribe => File["$postfix_merged_header_checks"],
+    owner => root, group => 0, mode => 0644;
   }
 
   postfix::config { "header_checks":
